@@ -47,17 +47,18 @@ const populateDom = (items) => {
       newItemEl.appendChild(newTextEl);
     }
 
+    if (item.link) {
+      newLinkEl = document.createElement('a');
+      newLinkEl.href = item.link;
+      newLinkEl.innerText = 'Click here';
+      newItemEl.appendChild(newLinkEl);
+    }
+
     if (item.image) {
       newImgEl = document.createElement('img');
       newImgEl.src = item.image.url;
       newImgEl.alt = item.image.title;
       newItemEl.appendChild(newImgEl);
-    }
-
-    if (item.link) {
-      newLinkEl = document.createElement('a');
-      newLinkEl.href = item.link;
-      newItemEl.appendChild(newLinkEl);
     }
 
     articleHolder.appendChild(newItemEl);
