@@ -1,0 +1,12 @@
+{
+  "short_name": "thingoftheday",
+  "name": "thingoftheday by whitep4nth3r",
+  "icons": [{
+    "src": "icon.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  }],
+  "start_url": "/",
+  "background_color": "#fafafa",
+  "theme_color": "#fafafa"
+}
