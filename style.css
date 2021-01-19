@@ -1,3 +1,101 @@
+:root {
+  --red: #f11012;
+  --red-darker: #d90d10;
+  --green: #82af3a;
+  --black: #0f111a;
+  --white: #ffffff;
+  --offwhite: #f8f8f2;
+  --yellow: #ffb626;
+  --yellow-darker: #f0a000;
+  --border-radius: 0.5rem;
+  --grid-unit: 0.5rem;
+  --font-weight-normal: 300;
+  --font-weight-bold: 700;
+  --font-family-heading: "Titillium Web", sans-serif;
+  --font-family-main: "Titillium Web", sans-serif;
+  --global-transition-time: 0.2s;
+  --hard-box-shadow: 0.625rem 0.625rem 0 0 var(--yellow-darker);
+}
+
 body {
-  /* background: black; */
+  font-size: 16px;
+  background-color: var(--offwhite);
+  color: var(--white);
+  font-family: var(--font-family-main);
+  font-weight: var(--font-weight-normal);
+  margin: 0;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  max-width: 600px;
+}
+
+.item__container {
+  box-shadow: rgba(0, 0, 0, 0.55) 0px 1.5rem 4.25rem; /*convert to rems...*/
+  background-color: var(--black);
+  border-radius: var(--border-radius);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.item__topRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.item__panther {
+  display: flex;
+}
+
+.item__date {
+  display: flex;
+  align-self: flex-start;
+  font-weight: var(--font-weight-bold);
+  font-size: 1.2rem;
+}
+
+.item__img {
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+  border: 0.25rem solid var(--yellow);
+}
+
+.item__link {
+  padding: 1rem 2rem;
+  display: flex;
+  margin: 1rem auto;
+  font-size: 1.4rem;
+  background-color: #000000;
+  font-weight: var(--font-weight-normal);
+  color: var(--white);
+  text-decoration: none;
+  transition: box-shadow var(--global-transition-time) ease 0s;
+  border: 0.25rem solid var(--yellow);
+  cursor: pointer;
+}
+
+.item__link:hover, .item__link:focus, .item__link:active {
+  outline-width: 0;
+  box-shadow: var(--hard-box-shadow);
+}
+
+.item__text {
+  font-weight: var(--font-weight-normal);
+  margin-bottom: 1rem;
+  line-height: 1.4;
 }

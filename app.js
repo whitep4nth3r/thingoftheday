@@ -14,6 +14,7 @@ const query = `query{
       }
       panther
       link
+      linkText
     }
   }
 }`
@@ -45,7 +46,7 @@ const getMonthStringFromInt = (int) => {
     "Sep",
     "Oct",
     "Nov",
-    "Dev"
+    "Dec"
   ]
 
   return months[int];
@@ -71,38 +72,60 @@ const formatPublishedDateForDisplay = (dateString) => {
 
 const microblogHolder = document.querySelector("[data-items]");
 
+const itemClassNames = {
+  container: 'item__container',
+  topRow: 'item__topRow',
+  date: 'item__date',
+  img: 'item__img',
+  link: 'item__link',
+  panther: 'item__panther',
+  text: 'item__text',
+}
+
 const renderItems = (items) => {
   items.forEach(item => {
     const newItemEl = document.createElement("article");
+    newItemEl.className = itemClassNames.container;
+
+    const newTopRow = document.createElement('div');
+    newTopRow.className = itemClassNames.topRow;
 
     const newPantherEl = document.createElement("img");
     newPantherEl.src = `./panthers/${item.panther}.png`;
     newPantherEl.alt = `Image of ${item.panther} panther emote`;
-    newItemEl.appendChild(newPantherEl);
+    newPantherEl.className = itemClassNames.panther;
+    newTopRow.appendChild(newPantherEl);
 
     const newDateEl = document.createElement("time");
     newDateEl.setAttribute("datetime", formatPublishedDateForDateTime(item.sys.firstPublishedAt));
     newDateEl.innerText = formatPublishedDateForDisplay(item.sys.firstPublishedAt);
-    newItemEl.appendChild(newDateEl);
+    newDateEl.className = itemClassNames.date;
+    newTopRow.appendChild(newDateEl);
+
+    newItemEl.appendChild(newTopRow);
+
+    if (item.image) {
+      const newImgEl = document.createElement("img");
+      newImgEl.src = item.image.url;
+      newImgEl.alt = item.image.title;
+      newImgEl.className = itemClassNames.img;
+      newItemEl.appendChild(newImgEl);
+    }
 
     if (item.text) {
       const newTextEl = document.createElement("h2");
       newTextEl.innerText = item.text;
+      newTextEl.className = itemClassNames.text;
       newItemEl.appendChild(newTextEl);
     }
 
     if (item.link) {
       const newLinkEl = document.createElement("a");
       newLinkEl.href = item.link;
-      newLinkEl.innerText = "Click here";
+      newLinkEl.innerText = item.linkText || "View more";
+      newLinkEl.setAttribute("target", "_blank");
+      newLinkEl.className = itemClassNames.link;
       newItemEl.appendChild(newLinkEl);
-    }
-
-    if (item.image) {
-      const newImgEl = document.createElement("img");
-      newImgEl.src = item.image.url;
-      newImgEl.alt = item.image.title;
-      newItemEl.appendChild(newImgEl);
     }
 
     microblogHolder.appendChild(newItemEl);
