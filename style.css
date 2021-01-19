@@ -20,7 +20,6 @@
 body {
   font-size: 16px;
   background-color: var(--offwhite);
-  color: var(--white);
   font-family: var(--font-family-main);
   font-weight: var(--font-weight-normal);
   margin: 0;
@@ -32,18 +31,46 @@ body {
 }
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 2rem auto;
   padding: 2rem;
   max-width: 600px;
 }
 
+.microblog__title {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--black);
+  margin-bottom: 2rem;
+}
+
+.microblog__description {
+  font-size: 1.5rem;
+  line-height: 2.6rem;
+  font-weight: var(--font-weight-normal);
+  color: var(--black);
+  margin-bottom: 2rem;
+}
+
+.microblog__link {
+  font-size: 1.5rem;
+  color: var(--black);
+  margin-bottom: 3rem;
+  display: block;    
+  transition: box-shadow var(--global-transition-time) ease 0s;
+}
+
+.microblog__link:hover, .microblog__link:focus, .microblog__link:active {
+  outline-width: 0;
+  box-shadow: var(--yellow) 0 0 0 0.25rem;
+}
+
 .item__container {
-  box-shadow: rgba(0, 0, 0, 0.55) 0px 1.5rem 4.25rem; /*convert to rems...*/
+  box-shadow: rgba(0, 0, 0, 0.55) 0px 1.5rem 1.8rem; /*convert to rems...*/
   background-color: var(--black);
   border-radius: var(--border-radius);
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -64,6 +91,7 @@ body {
 .item__date {
   display: flex;
   align-self: flex-start;
+  color: var(--yellow);
   font-weight: var(--font-weight-bold);
   font-size: 1.2rem;
 }
@@ -76,7 +104,7 @@ body {
 }
 
 .item__link {
-  padding: 1rem 2rem;
+  padding: 0.5rem 1.75rem;
   display: flex;
   margin: 1rem auto;
   font-size: 1.4rem;
@@ -95,7 +123,9 @@ body {
 }
 
 .item__text {
+  color: var(--white);
   font-weight: var(--font-weight-normal);
+  font-size: 1.5rem;
   margin-bottom: 1rem;
   line-height: 1.4;
 }
