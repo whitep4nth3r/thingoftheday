@@ -58,6 +58,13 @@ const addLeadingZero = (num) => {
   return num;
 }
 
+const renderFooterDate = () => {
+  const footerYearHolder = document.querySelector('[data-footer-year]');
+  const timestamp = Date.now();
+  const date = new Date(timestamp);
+  footerYearHolder.innerText = date.getFullYear();
+}
+
 const formatPublishedDateForDateTime = (dateString) => {
   const timestamp = Date.parse(dateString);
   const date = new Date(timestamp);
@@ -132,6 +139,8 @@ const renderItems = (items) => {
     microblogHolder.appendChild(newItemEl);
   })
 }
+
+renderFooterDate();
 
 fetch(endpoint, fetchOptions)
   .then(response => response.json())

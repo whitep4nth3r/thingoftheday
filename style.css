@@ -31,6 +31,10 @@ body {
   box-sizing: border-box;
 }
 
+a:visited {
+  color: var(--pink);
+}
+
 .container {
   margin: 2rem auto;
   padding: 2rem;
@@ -59,9 +63,11 @@ body {
   margin-bottom: 3rem;
   display: block;    
   transition: box-shadow var(--global-transition-time) ease 0s;
+  text-underline-offset: 0.5rem;
+  text-decoration: underline;
 }
 
-.microblog__link:hover, .microblog__link:focus, .microblog__link:active {
+.microblog__link:focus, .microblog__link:active {
   outline-width: 0;
   box-shadow: var(--yellow) 0 0 0 0.25rem;
 }
@@ -126,10 +132,37 @@ body {
   box-shadow: var(--hard-box-shadow);
 }
 
+.item__link:visited {
+  color: var(--white);
+}
+
 .item__text {
   color: var(--white);
   font-weight: var(--font-weight-normal);
   font-size: 1.5rem;
   margin-bottom: 1rem;
   line-height: 1.4;
+}
+
+.footer {
+  color: var(--black);
+  font-weight: var(--font-weight-normal);
+  font-size: 1rem;
+  margin-top: 8rem;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+  text-align: center;
+  display: block;
+}
+
+.footer__link {
+  font-size: 1rem;
+  transition: box-shadow var(--global-transition-time) ease 0s;
+  text-underline-offset: 0.5rem;
+  text-decoration: underline;
+}
+
+.footer__link:focus, .footer__link:active {
+  outline-width: 0;
+  box-shadow: var(--yellow) 0 0 0 0.25rem;
 }

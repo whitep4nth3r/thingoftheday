@@ -24,14 +24,18 @@
 
 <body>
   <main class="container">
-    <h1 class="microblog__title">thingoftheday.xyz</h1> 
-    <p class="microblog__description">thingoftheday is a basic microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript.</p> 
-    <a href="https://github.com/whitep4nth3r/thingoftheday" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="microblog__link">View code on GitHub</a> 
+    <header>
+      <h1 class="microblog__title">thingoftheday.xyz</h1> 
+      <p class="microblog__description">thingoftheday is a basic microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript.</p> 
+      <a href="https://github.com/whitep4nth3r/thingoftheday" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="microblog__link">View code on GitHub</a> 
+    </header>
     <section data-items></section>
+    <footer class="footer">&copy; <span data-footer-year></span> <a href="https://twitter.com/whitep4nth3r" class="footer__link" target="_blank" rel="noreferrer noopener">@whitep4nth3r</a></footer>
   </main>
+
   <script type="module" src="app.js"></script>
 </body>
 
