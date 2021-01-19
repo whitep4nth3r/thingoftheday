@@ -5,6 +5,7 @@
   --black: #0f111a;
   --white: #ffffff;
   --offwhite: #f8f8f2;
+  --pink: #d91ca8;
   --yellow: #ffb626;
   --yellow-darker: #f0a000;
   --border-radius: 0.5rem;
@@ -68,12 +69,15 @@ body {
 .item__container {
   box-shadow: rgba(0, 0, 0, 0.55) 0px 1.5rem 1.8rem; /*convert to rems...*/
   background-color: var(--black);
-  border-radius: var(--border-radius);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  border-top: 0.5rem solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(90deg, var(--yellow) 0%, var(--pink) 100%);
 }
 
 .item__topRow {

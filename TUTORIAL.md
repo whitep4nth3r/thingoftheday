@@ -2,11 +2,14 @@
 
 # todo list
 
-Styles
-Accessibility tweaks
-Header / some links?
+Add footer
+Convert panthers to SVGs
 Open Graph
 Meta stuff
+
+Check Axe
+Check Wave
+Check Lighthouse
 
 ## Prepare your development environment
 

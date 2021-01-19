@@ -92,7 +92,7 @@ const renderItems = (items) => {
 
     const newPantherEl = document.createElement("img");
     newPantherEl.src = `./panthers/${item.panther}.png`;
-    newPantherEl.alt = `Image of ${item.panther} panther emote`;
+    newPantherEl.alt = `${item.panther} panther emote`;
     newPantherEl.className = itemClassNames.panther;
     newTopRow.appendChild(newPantherEl);
 
@@ -124,6 +124,7 @@ const renderItems = (items) => {
       newLinkEl.href = item.link;
       newLinkEl.innerText = item.linkText || "View more";
       newLinkEl.setAttribute("target", "_blank");
+      newLinkEl.setAttribute("rel", "noopener noreferrer");
       newLinkEl.className = itemClassNames.link;
       newItemEl.appendChild(newLinkEl);
     }
