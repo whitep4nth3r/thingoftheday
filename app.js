@@ -2,7 +2,7 @@ const spaceID = "4nhaj6wzvnco";
 const endpoint = "https://graphql.contentful.com/content/v1/spaces/" + spaceID;
 const accessToken = "F91A7b3FyjTFeH0sN6pYIfo6Nu1WZ2byX8Rdc4McGUI";
 const query = `query{
-  textCollection {
+  microblogCollection {
     items {
       text
       image {
@@ -67,5 +67,5 @@ const populateDom = (items) => {
 
 fetch(endpoint, fetchOptions)
   .then(response => response.json())
-  .then(data => populateDom(data.data.textCollection.items));
+  .then(data => populateDom(data.data.microblogCollection.items));
 

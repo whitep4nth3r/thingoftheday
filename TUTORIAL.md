@@ -1,4 +1,13 @@
-# Building a lightweight microblogging site with Contentful and ExpressJS
+# todo list
+
+Styles
+Accessibility tweaks
+Header / some links?
+Open Graph
+Meta stuff
+
+
+## Building a lightweight microblogging site with Contentful and ExpressJS
 
 ## Prepare your development environment
 
@@ -13,7 +22,6 @@ The naming of the content model is important because you can't edit this easily!
 - date (auto)
 - link - optional
 
-- embeds???
 
 ## Add some content
 
