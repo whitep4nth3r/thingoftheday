@@ -98,7 +98,7 @@ const renderItems = (items) => {
     newTopRow.className = itemClassNames.topRow;
 
     const newPantherEl = document.createElement("img");
-    newPantherEl.src = `./panthers/${item.panther}.png`;
+    newPantherEl.src = `./panthers/${item.panther}.svg`;
     newPantherEl.alt = `${item.panther} panther emote`;
     newPantherEl.className = itemClassNames.panther;
     newTopRow.appendChild(newPantherEl);
