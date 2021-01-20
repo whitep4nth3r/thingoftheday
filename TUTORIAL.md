@@ -2,9 +2,9 @@
 
 ## todo list
 
-Convert panthers to SVGs
-Open Graph
 Meta stuff
+
+Open Graph
 
 Check Axe
 Check Wave
