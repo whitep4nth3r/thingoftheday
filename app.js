@@ -11,6 +11,9 @@ const query = `query{
       image {
         url
         title
+        width
+        height
+        description
       }
       panther
       link
@@ -116,7 +119,9 @@ const renderItems = (items) => {
     if (item.image) {
       const newImgEl = document.createElement("img");
       newImgEl.src = item.image.url;
-      newImgEl.alt = item.image.title;
+      newImgEl.alt = item.image.description;
+      newImgEl.setAttribute('width', item.image.width);
+      newImgEl.setAttribute('height', item.image.height);
       newImgEl.className = itemClassNames.img;
       newItemEl.appendChild(newImgEl);
     }

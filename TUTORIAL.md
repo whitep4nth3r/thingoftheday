@@ -1,17 +1,5 @@
 # Building a lightweight microblogging site with Contentful and ExpressJS
 
-## todo list
-
-Meta stuff
-
-Open Graph
-
-Check Axe
-Check Wave
-Check Lighthouse
-
-Google analytics?
-
 ## Prepare your development environment
 
 ## Define your content model

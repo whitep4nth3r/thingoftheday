@@ -108,6 +108,7 @@ a:visited {
 .item__img {
   display: block;
   width: 100%;
+  height: auto;
   margin-bottom: 2rem;
   border: 0.25rem solid var(--yellow);
 }
