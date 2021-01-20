@@ -17,8 +17,12 @@
   --hard-box-shadow: 0.625rem 0.625rem 0 0 var(--yellow-darker);
 }
 
+html {
+  font-size: 100%;
+}
+
 body {
-  font-size: 16px;
+  font-size: 1rem;
   background-color: var(--offwhite);
   font-family: var(--font-family);
   font-weight: var(--font-weight-normal);
