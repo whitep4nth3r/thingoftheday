@@ -11,9 +11,8 @@
   --border-radius: 0.5rem;
   --grid-unit: 0.5rem;
   --font-weight-normal: 300;
-  --font-weight-bold: 700;
-  --font-family-heading: "Titillium Web", sans-serif;
-  --font-family-main: "Titillium Web", sans-serif;
+  --font-weight-bold: 600;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --global-transition-time: 0.2s;
   --hard-box-shadow: 0.625rem 0.625rem 0 0 var(--yellow-darker);
 }
@@ -21,7 +20,7 @@
 body {
   font-size: 16px;
   background-color: var(--offwhite);
-  font-family: var(--font-family-main);
+  font-family: var(--font-family);
   font-weight: var(--font-weight-normal);
   margin: 0;
 }
@@ -38,7 +37,7 @@ a:visited {
 .container {
   margin: 2rem auto;
   padding: 2rem;
-  max-width: 600px;
+  max-width: 37.5rem;
 }
 
 .microblog__title {

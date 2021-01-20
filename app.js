@@ -100,6 +100,8 @@ const renderItems = (items) => {
     const newPantherEl = document.createElement("img");
     newPantherEl.src = `./panthers/${item.panther}.svg`;
     newPantherEl.alt = `${item.panther} panther emote`;
+    newPantherEl.setAttribute('width', '50');
+    newPantherEl.setAttribute('height', '50');
     newPantherEl.className = itemClassNames.panther;
     newTopRow.appendChild(newPantherEl);
 
