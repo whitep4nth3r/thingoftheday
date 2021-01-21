@@ -4,7 +4,7 @@
 
 ## A lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript.
 
-[Visit thingoftheday](thingoftheday.xyz)
+[Visit thingoftheday](https://thingoftheday.xyz/)
 
 ___
 
