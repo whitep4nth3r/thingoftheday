@@ -1,7 +1,7 @@
 const spaceID = "4nhaj6wzvnco";
 const endpoint = "https://graphql.contentful.com/content/v1/spaces/" + spaceID;
 const accessToken = "F91A7b3FyjTFeH0sN6pYIfo6Nu1WZ2byX8Rdc4McGUI";
-const query = `query{
+const query = `{
   microblogCollection {
     items {
       sys {
