@@ -1,4 +1,8 @@
+![Screenshot of thingoftheday.xyz](./assets/screenshot.png)
+
 # thingoftheday
+
+[Visit thingoftheday](thingoftheday.xyz)
 
 thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript.
 
