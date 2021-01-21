@@ -2,7 +2,7 @@
 
 # thingoftheday
 
-[Visit thingoftheday](thingoftheday.xyz)
+[Visit thingoftheday](https://thingoftheday.xyz/)
 
 thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript.
 
