@@ -11,7 +11,7 @@ ___
 
 ## Using the Contentful CLI to get started really really quickly
 
-There are some handy files in this repo to help you get started really quickly using the Contentful CLI.
+There are some handy files in `./setup` to help you get started really quickly using the Contentful CLI.
 
 [Access the Contentful CLI docs on importing/exporting data here.](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/)
 
