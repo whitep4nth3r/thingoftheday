@@ -8,34 +8,37 @@
 
 ___
 
+## Want to build your own thingoftheday?
 
-## Using the Contentful CLI to get started really really quickly
+Follow this quick setup guide to get started in minutes!
 
-There are some handy files in `./setup` to help you get started really quickly using the Contentful CLI.
+We're going to make some small changes to some handy files in the `./setup` directory, and use the Contentful CLI to import the content model and example content provided into your own Contentful space.
 
-[Access the Contentful CLI docs on importing/exporting data here.](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/)
+## Step 1: Fork the repo to your local machine!
 
-### 1. Create your Contentful account
+___
+
+## Step 2: Create your Contentful account
 
 [Sign up here.](https://www.contentful.com/sign-up/#small)
 
 ___
 
-### 2. Create a new space inside your Contentful account
+## Step 3: Create a new space inside your Contentful account
 
 - Grab the Space ID from Settings > General Settings
 - Generate an access token from Settings > API keys
 
 ___
 
-### 3. Configure your credentials in this repository
+## Step 4: Configure your credentials in this repository
 
 - Open up `./setup/contentful-export.json` and replace all instances of SPACE_ID with your new Space ID.
 - Add your Space ID and access token to `./setup/credentials.js`
 
 ___
 
-### 4. Install the Contentful CLI
+## Step 5: Install the Contentful CLI
 
 Using homebrew:
 
@@ -57,13 +60,17 @@ yarn global add contentful-cli
 ```
 ___
 
-### 5. Authenticate with the CLI
+## Step 6: Authenticate with the CLI
 
 Run `contentful login` in your terminal and follow the instructions in your browser.
 
 ___
 
-### 6. Import the example content model and content to your Contentful space
+## Step 7: Import the example content model and content to your Contentful space
+
+[Access the Contentful CLI docs on importing/exporting data here.](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/)
+
+### ::TLDR::
 
 Run the following command in your terminal, ensuring you switch out SPACE_ID for your new Space ID.
 
@@ -77,7 +84,7 @@ The terminal will do some fancy things. If all looks good - refresh Contentful i
 
 ___
 
-## Running the application on your machine
+## Step 8: Run the application on your machine
 
 thingoftheday uses no frameworks and is powered by vanilla HTML, CSS and JavaScript!
 
@@ -91,3 +98,13 @@ Install http-server globally, and start the development server locally by runnin
 cd path/to/repo
 npx http-server
 ```
+
+## Step 9: Sit back and relax!
+
+With your http server started, your credentials file configured, and your content model imported, you'll be able to go to your browser and see your very own thingoftheday microblog - all within minutes.
+
+That was almost too easy!
+
+And remember:
+
+## _Build stuff, learn things, love what you do_
