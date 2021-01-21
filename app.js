@@ -1,6 +1,7 @@
-const spaceID = "4nhaj6wzvnco";
-const endpoint = "https://graphql.contentful.com/content/v1/spaces/" + spaceID;
-const accessToken = "F91A7b3FyjTFeH0sN6pYIfo6Nu1WZ2byX8Rdc4McGUI";
+import { SPACE_ID, ACCESS_TOKEN } from './setup/credentials.js';
+
+const endpoint = "https://graphql.contentful.com/content/v1/spaces/" + SPACE_ID;
+
 const query = `{
   microblogCollection {
     items {
@@ -23,12 +24,12 @@ const query = `{
 }`
 
 const fetchOptions = {
-  spaceID,
-  accessToken,
+  spaceID: SPACE_ID,
+  accessToken: ACCESS_TOKEN,
   endpoint,
   method: "POST",
   headers: {
-    Authorization: "Bearer " + accessToken,
+    Authorization: "Bearer " + ACCESS_TOKEN,
     "Content-Type": "application/json",
   },
   redirect: "follow",
