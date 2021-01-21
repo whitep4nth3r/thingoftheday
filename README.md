@@ -20,7 +20,7 @@ ___
 
 ## Step 2: Create your Contentful account
 
-[Sign up here.](https://www.contentful.com/sign-up/#small)
+[Sign up here.](https://www.contentful.com/sign-up/)
 
 ___
 
