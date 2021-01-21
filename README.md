@@ -27,7 +27,7 @@ ___
 ## Step 3: Create a new space inside your Contentful account
 
 - Grab the Space ID from Settings > General Settings
-- Generate an access token from Settings > API keys
+- Generate an access token for the Content Delivery API from Settings > API keys
 
 ___
 
@@ -58,6 +58,7 @@ Using yarn:
 yarn global add contentful-cli
 
 ```
+
 ___
 
 ## Step 6: Authenticate with the CLI
