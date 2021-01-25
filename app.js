@@ -119,7 +119,7 @@ const renderItems = (items) => {
 
     if (item.image) {
       const newImgEl = document.createElement("img");
-      newImgEl.src = item.image.url;
+      newImgEl.src = `${item.image.url}?w=500`;
       newImgEl.alt = item.image.description;
       newImgEl.setAttribute('width', item.image.width);
       newImgEl.setAttribute('height', item.image.height);

@@ -6,6 +6,12 @@
 
 [Visit thingoftheday](https://thingoftheday.xyz/)
 
+## Useful links
+
+Contentful GraphiQL Playground:
+
+`https://graphql.contentful.com/content/v1/spaces/{YOUR_SPACE_ID}/explore?access_token={YOUR_ACCESS_TOKEN}`
+
 ___
 
 ## Want to build your own thingoftheday?
@@ -14,7 +20,7 @@ Follow this quick setup guide to get started in minutes!
 
 We're going to make some small changes to some handy files in the `./setup` directory, and use the Contentful CLI to import the content model and example content provided into your own Contentful space.
 
-## Step 1: Fork the repo to your local machine!
+## Step 1: Fork the repo to your local machine
 
 ___
 

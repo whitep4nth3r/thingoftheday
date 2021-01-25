@@ -80,13 +80,6 @@
                 "image"
               ],
               "message": "Please choose an image file, yo!"
-            },
-            {
-              "assetFileSize": {
-                "min": null,
-                "max": 512000
-              },
-              "message": "Please choose an image that's less than 500kb in size, yo!"
             }
           ],
           "disabled": false,
