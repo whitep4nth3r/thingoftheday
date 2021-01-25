@@ -106,7 +106,7 @@ cd path/to/repo
 npx http-server
 ```
 
-## Step 9: Sit back and relax!
+## And you're done!
 
 With your http server started, your credentials file configured, and your content model imported, you'll be able to visit your very own thingoftheday microblog in your browser - all within minutes.
 
