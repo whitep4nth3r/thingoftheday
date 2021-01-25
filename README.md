@@ -81,7 +81,7 @@ cd /path/to/repo/thingoftheday/setup
 contentful space import --space-id SPACE_ID --content-file contentful-export.json
 ```
 
-The terminal will do some fancy things. If all looks good - refresh Contentful in your browser and see the content model and example content has been imported for you! 🎉🎉🎉
+The terminal will do some fancy things. If all looks good - refresh Contentful in your browser and you'll find the content model and example content has been imported for you! 🎉🎉🎉
 
 ___
 
@@ -102,7 +102,7 @@ npx http-server
 
 ## Step 9: Sit back and relax!
 
-With your http server started, your credentials file configured, and your content model imported, you'll be able to go to your browser and see your very own thingoftheday microblog - all within minutes.
+With your http server started, your credentials file configured, and your content model imported, you'll be able to visit your very own thingoftheday microblog in your browser - all within minutes.
 
 That was almost too easy!
 
