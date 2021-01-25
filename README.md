@@ -81,7 +81,7 @@ cd /path/to/repo/thingoftheday/setup
 contentful space import --space-id SPACE_ID --content-file contentful-export.json
 ```
 
-The terminal will do some fancy things. If all looks good - refresh Contentful in your browser and you'll find the content model and example content has been imported for you! 🎉🎉🎉
+The terminal will do some fancy things. If all looks good - refresh Contentful in your browser and you'll find the content model and example post has been imported for you! 🎉🎉🎉
 
 ___
 
