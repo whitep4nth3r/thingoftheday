@@ -110,8 +110,6 @@ npx http-server
 
 With your http server started, your credentials file configured, and your content model imported, you'll be able to visit your very own thingoftheday microblog in your browser - all within minutes.
 
-That was almost too easy!
-
 And remember:
 
 ## _Build stuff, learn things, love what you do_
