@@ -39,7 +39,6 @@ ___
 
 ## Step 4: Configure your credentials in this repository
 
-- Open up `./setup/contentful-export.json` and replace all instances of SPACE_ID with your new Space ID.
 - Add your Space ID and access token to `./setup/credentials.js`
 
 ___
