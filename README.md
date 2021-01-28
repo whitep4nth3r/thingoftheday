@@ -20,30 +20,28 @@ Follow this quick setup guide to get started in minutes!
 
 We're going to make some small changes to some handy files in the `./setup` directory, and use the Contentful CLI to import the content model and example content provided into your own Contentful space.
 
-## Step 1: Fork the repo to your local machine
+## Step 1: Get the code
 
+Fork the from GitHub to your local machine.
 ___
 
-## Step 2: Create your Contentful account
+## Step 2: Get Contentful
 
+Create your Contentful account.
 [Sign up here.](https://www.contentful.com/sign-up/)
 
 ___
 
-## Step 3: Create a new space inside your Contentful account
+## Step 3: Get credentials
 
-- Grab the Space ID from Settings > General Settings
-- Generate an access token for the Content Delivery API from Settings > API keys
-
-___
-
-## Step 4: Configure your credentials in this repository
-
+- Create a new space inside your Contentful account
+- Go to Settings > General Settings and make a note of the Space ID
+- Go to Settings > API keys and generate an access token for the Content Delivery API
 - Add your Space ID and access token to `./setup/credentials.js`
 
 ___
 
-## Step 5: Install the Contentful CLI
+## Step 4: Install the Contentful CLI
 
 Using homebrew:
 
@@ -66,17 +64,17 @@ yarn global add contentful-cli
 
 ___
 
-## Step 6: Authenticate with the CLI
+## Step 5: Authenticate with the CLI
 
 Run `contentful login` in your terminal and follow the instructions in your browser.
 
 ___
 
-## Step 7: Import the example content model and content to your Contentful space
+## Step 6: Import the content model and example post to your Contentful space
 
 [Access the Contentful CLI docs on importing/exporting data here.](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/)
 
-### ::TLDR::
+### ::TLDR
 
 Run the following command in your terminal, ensuring you switch out SPACE_ID for your new Space ID.
 
@@ -90,7 +88,7 @@ The terminal will do some fancy things. If all looks good - refresh Contentful i
 
 ___
 
-## Step 8: Run the application on your machine
+## Step 7: Run the application
 
 thingoftheday uses no frameworks and is powered by vanilla HTML, CSS and JavaScript!
 
@@ -105,7 +103,7 @@ cd path/to/repo
 npx http-server
 ```
 
-## And you're done!
+## And you're done
 
 With your http server started, your credentials file configured, and your content model imported, you'll be able to visit your very own thingoftheday microblog in your browser - all within minutes.
 
