@@ -70,7 +70,9 @@ Run `contentful login` in your terminal and follow the instructions in your brow
 
 ___
 
-## Step 6: Import the content model and example post to your Contentful space
+## Step 6: Run the import
+
+Import the content model and example post to your Contentful space.
 
 [Access the Contentful CLI docs on importing/exporting data here.](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/)
 
