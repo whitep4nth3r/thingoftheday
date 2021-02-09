@@ -50,6 +50,7 @@ exports.handler = async function (event, context) {
       });
 
       res.on("end", () => {
+        console.log("HELLO");
         console.log(JSON.parse(data));
       });
     })
@@ -59,6 +60,8 @@ exports.handler = async function (event, context) {
 
   req.write(data);
   req.end();
+
+  console.log(JSON.parse(data));
 
   const rssFeed = `<?xml version="1.0"?>
   <rss version="2.0">
