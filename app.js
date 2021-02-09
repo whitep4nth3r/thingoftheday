@@ -1,4 +1,4 @@
-import { SPACE_ID, ACCESS_TOKEN } from './setup/credentials.js';
+import { SPACE_ID, ACCESS_TOKEN } from "./setup/credentials.js";
 
 const endpoint = "https://graphql.contentful.com/content/v1/spaces/" + SPACE_ID;
 
@@ -7,6 +7,7 @@ const query = `{
     items {
       sys {
         firstPublishedAt
+        id
       }
       text
       image {
@@ -21,7 +22,7 @@ const query = `{
       linkText
     }
   }
-}`
+}`;
 
 const fetchOptions = {
   spaceID: SPACE_ID,
@@ -34,8 +35,8 @@ const fetchOptions = {
   },
   redirect: "follow",
   referrerPolicy: "no-referrer",
-  body: JSON.stringify({ query })
-}
+  body: JSON.stringify({ query }),
+};
 
 const getMonthStringFromInt = (int) => {
   const months = [
@@ -50,62 +51,63 @@ const getMonthStringFromInt = (int) => {
     "Sep",
     "Oct",
     "Nov",
-    "Dec"
-  ]
+    "Dec",
+  ];
 
   return months[int];
-}
+};
 
 const addLeadingZero = (num) => {
   num = num.toString();
   while (num.length < 2) num = "0" + num;
   return num;
-}
+};
 
 const renderFooterDate = () => {
-  const footerYearHolder = document.querySelector('[data-footer-year]');
+  const footerYearHolder = document.querySelector("[data-footer-year]");
   const timestamp = Date.now();
   const date = new Date(timestamp);
   footerYearHolder.innerText = date.getFullYear();
-}
+};
 
 const formatPublishedDateForDateTime = (dateString) => {
   const timestamp = Date.parse(dateString);
   const date = new Date(timestamp);
   return `${date.getFullYear()}-${addLeadingZero(date.getMonth() + 1)}-${date.getDate()}`;
-}
+};
 
 const formatPublishedDateForDisplay = (dateString) => {
   const timestamp = Date.parse(dateString);
   const date = new Date(timestamp);
   return `${date.getDate()} ${getMonthStringFromInt(date.getMonth())} ${date.getFullYear()}`;
-}
+};
 
 const microblogHolder = document.querySelector("[data-items]");
 
 const itemClassNames = {
-  container: 'item__container',
-  topRow: 'item__topRow',
-  date: 'item__date',
-  img: 'item__img',
-  link: 'item__link',
-  panther: 'item__panther',
-  text: 'item__text',
-}
+  container: "item__container",
+  topRow: "item__topRow",
+  date: "item__date",
+  img: "item__img",
+  link: "item__link",
+  panther: "item__panther",
+  text: "item__text",
+};
 
 const renderItems = (items) => {
-  items.forEach(item => {
+  items.forEach((item) => {
     const newItemEl = document.createElement("article");
+    newItemEl.setAttribute("id", item.sys.id);
     newItemEl.className = itemClassNames.container;
 
-    const newTopRow = document.createElement('div');
+    const newTopRow = document.createElement("div");
     newTopRow.className = itemClassNames.topRow;
 
     const newPantherEl = document.createElement("img");
     newPantherEl.src = `./panthers/${item.panther}.svg`;
     newPantherEl.alt = `${item.panther} panther emote`;
-    newPantherEl.setAttribute('width', '50');
-    newPantherEl.setAttribute('height', '50');
+    newPantherEl.setAttribute("width", "50");
+    newPantherEl.setAttribute("height", "50");
     newPantherEl.className = itemClassNames.panther;
     newTopRow.appendChild(newPantherEl);
 
@@ -121,8 +123,8 @@ const renderItems = (items) => {
       const newImgEl = document.createElement("img");
       newImgEl.src = `${item.image.url}?w=500`;
       newImgEl.alt = item.image.description;
-      newImgEl.setAttribute('width', item.image.width);
-      newImgEl.setAttribute('height', item.image.height);
+      newImgEl.setAttribute("width", item.image.width);
+      newImgEl.setAttribute("height", item.image.height);
       newImgEl.className = itemClassNames.img;
       newItemEl.appendChild(newImgEl);
     }
@@ -145,12 +147,11 @@ const renderItems = (items) => {
     }
 
     microblogHolder.appendChild(newItemEl);
-  })
-}
+  });
+};
 
 renderFooterDate();
 
 fetch(endpoint, fetchOptions)
-  .then(response => response.json())
-  .then(data => renderItems(data.data.microblogCollection.items));
-
+  .then((response) => response.json())
+  .then((data) => renderItems(data.data.microblogCollection.items));
