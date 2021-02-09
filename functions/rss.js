@@ -1,6 +1,10 @@
+//THIS IS A WORK IN PROGRESS!
+
 const https = require("https");
 
 exports.handler = async function (event, context) {
+  let posts = "";
+
   function buildRssItems(items) {
     const returnRss = "";
 
@@ -14,7 +18,7 @@ exports.handler = async function (event, context) {
   }
 
   const query = `
-  {
+  query {
     microblogCollection {
       items {
         sys {
@@ -31,37 +35,28 @@ exports.handler = async function (event, context) {
 
   const options = {
     protocol: "https:",
-    hostname: "thingoftheday.xyz",
-    path: "https://graphql.contentful.com/content/v1/spaces/4nhaj6wzvnco",
+    hostname: "graphql.contentful.com",
+    path: "/content/v1/spaces/4nhaj6wzvnco",
     method: "POST",
-    body: JSON.stringify({ query }),
     headers: {
       Authorization: "Bearer F91A7b3FyjTFeH0sN6pYIfo6Nu1WZ2byX8Rdc4McGUI",
       "Content-Type": "application/json",
     },
   };
 
-  let data = "";
-
-  const req = https
-    .request(options, (res) => {
-      res.on("data", (chunk) => {
-        data += chunk;
-      });
-
-      res.on("end", () => {
-        console.log("HELLO");
-        console.log(JSON.parse(data));
-      });
-    })
-    .on("error", (err) => {
-      console.log("Error: ", err.message);
+  const req = https.request(options, (res) => {
+    res.on("data", (data) => {
+      posts += JSON.parse(data);
+      process.stdout.write(posts);
     });
+  });
 
-  req.write(data);
+  req.on("error", (e) => {
+    console.error(e);
+  });
+
+  req.write(JSON.stringify({ query }));
   req.end();
-
-  console.log(JSON.parse(data));
 
   const rssFeed = `<?xml version="1.0"?>
   <rss version="2.0">
