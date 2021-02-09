@@ -41,7 +41,7 @@ exports.handler = async function (event, context) {
     },
   };
 
-  const data;
+  let data = "";
 
   const req = https
     .request(options, (res) => {
