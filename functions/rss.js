@@ -1,15 +1,17 @@
 const https = require("https");
 
 exports.handler = async function (event, context) {
-  // function buildRssItem(item) {
-  //   return `
-  //   <title>${item.text}</title>
-  //   <author>whitep4nth3r</author>
-  //   <link>https://thingoftheday.xyz#${item.sys.id}</link>
-  //   <pubDate>${item.sys.firstPublishedAt}</pubDate>
-  //   <guid>${item.sys.id}</guid>
-  //   `;
-  // }
+  function buildRssItems(items) {
+    const returnRss = "";
+
+    return `
+    <title>${item.text}</title>
+    <author>whitep4nth3r</author>
+    <link>https://thingoftheday.xyz#${item.sys.id}</link>
+    <pubDate>${item.sys.firstPublishedAt}</pubDate>
+    <guid>${item.sys.id}</guid>
+    `;
+  }
 
   const query = `
   {
@@ -39,10 +41,10 @@ exports.handler = async function (event, context) {
     },
   };
 
+  const data;
+
   const req = https
     .request(options, (res) => {
-      let data = "";
-
       res.on("data", (chunk) => {
         data += chunk;
       });
@@ -61,12 +63,12 @@ exports.handler = async function (event, context) {
   const rssFeed = `<?xml version="1.0"?>
   <rss version="2.0">
   <channel>
-  <title>thingoftheday.xyz</title>
-  <link>https://thingoftheday.xyz</link>
-  <description>thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript.</description>
-
-
+    <title>thingoftheday.xyz</title>
+    <link>https://thingoftheday.xyz</link>
+    <description>thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript.</description>
   </channel>
+
+
   </rss>`;
 
   return {
