@@ -32,6 +32,7 @@ exports.handler = async function (event, context) {
     hostname: "thingoftheday.xyz",
     path: "https://graphql.contentful.com/content/v1/spaces/4nhaj6wzvnco",
     method: "POST",
+    body: JSON.stringify({ query }),
     headers: {
       Authorization: "Bearer F91A7b3FyjTFeH0sN6pYIfo6Nu1WZ2byX8Rdc4McGUI",
       "Content-Type": "application/json",
@@ -70,7 +71,7 @@ exports.handler = async function (event, context) {
 
   return {
     statusCode: 200,
-    contenType: "text/xml",
+    contentType: "text/xml",
     body: rssFeed,
   };
 };
