@@ -12,7 +12,7 @@ Contentful GraphiQL Playground:
 
 `https://graphql.contentful.com/content/v1/spaces/{YOUR_SPACE_ID}/explore?access_token={YOUR_ACCESS_TOKEN}`
 
-___
+---
 
 ## Want to build your own thingoftheday?
 
@@ -23,14 +23,15 @@ We're going to make some small changes to some handy files in the `./setup` dire
 ## Step 1: Get the code
 
 Fork the from GitHub to your local machine.
-___
+
+---
 
 ## Step 2: Get Contentful
 
 Create your Contentful account.
 [Sign up here.](https://www.contentful.com/sign-up/)
 
-___
+---
 
 ## Step 3: Get credentials
 
@@ -39,7 +40,7 @@ ___
 - Go to Settings > API keys and generate an access token for the Content Delivery API
 - Add your Space ID and access token to `./setup/credentials.js`
 
-___
+---
 
 ## Step 4: Install the Contentful CLI
 
@@ -62,13 +63,13 @@ yarn global add contentful-cli
 
 ```
 
-___
+---
 
 ## Step 5: Authenticate with the CLI
 
 Run `contentful login` in your terminal and follow the instructions in your browser.
 
-___
+---
 
 ## Step 6: Run the import
 
@@ -88,7 +89,7 @@ contentful space import --space-id SPACE_ID --content-file contentful-export.jso
 
 The terminal will do some fancy things. If all looks good - refresh Contentful in your browser and you'll find the content model and example post has been imported for you! 🎉🎉🎉
 
-___
+---
 
 ## Step 7: Run the application
 
@@ -108,6 +109,16 @@ npx http-server
 ## And you're done
 
 With your http server started, your credentials file configured, and your content model imported, you'll be able to visit your very own thingoftheday microblog in your browser - all within minutes.
+
+## BONUS CONTENT
+
+Generate an RSS feed of the content by hitting the following url:
+
+```bash
+https://{hostname}/.netlify/functions/rss
+```
+
+[The RSS feed for thingoftheday.xyz is available here](https://thingoftheday.xyz/.netlify/functions/rss).
 
 And remember:
 
