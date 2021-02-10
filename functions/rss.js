@@ -52,18 +52,30 @@ async function getPosts() {
 }
 
 function buildRssItems(items) {
+  const truncateLength = 44;
+
   return items
-    .map(
-      (item) => `
-    <item>
-      <title>${item.text}</title>
-      <author>whitep4nth3r</author>
-      <link>https://thingoftheday.xyz#${item.sys.id}</link>
-      <pubDate>${item.sys.firstPublishedAt}</pubDate>
-      <guid>${item.sys.id}</guid>
-    </item>
-  `
-    )
+    .map((item) => {
+      const hasText = item.text;
+      const hasLink = item.link;
+      const titleMaybeTruncated = hasText && item.text.length > truncateLength ? "..." : "";
+      const title = hasText
+        ? `${item.text.slice(0, truncateLength)}${titleMaybeTruncated}`
+        : "New post";
+      const maybeLink = hasLink ? ` - ${item.link}` : "";
+      const description = hasText ? `${item.text}${maybeLink}` : "";
+
+      return `
+        <item>
+        <title>${title}</title>
+        <description>${description}</description>
+        <author>whitep4nth3r</author>
+        <link>https://thingoftheday.xyz#${item.sys.id}</link>
+        <pubDate>${item.sys.firstPublishedAt}</pubDate>
+        <guid>${item.sys.id}</guid>
+        </item>
+        `;
+    })
     .join("");
 }
 

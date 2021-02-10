@@ -1,52 +1,81 @@
-<!doctype html >
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>thingoftheday by @whitep4nth3r</title>
+    <meta
+      name="description"
+      content="thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript. Built by @whitep4nth3r."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="utf-8">
-  <title>thingoftheday by @whitep4nth3r</title>
-  <meta name="description" content="thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript. Built by @whitep4nth3r.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed for thingoftheday.xyz"
+      href="/.netlify/functions/rss"
+    />
 
-  <!-- Fb/Default OG Meta Tags -->
-  <meta property="og:url" content="https://thingoftheday.xyz">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="thingoftheday by @whitep4nth3r">
-  <meta property="og:description" content="thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript. Built by @whitep4nth3r.">
-  <meta property="og:image" content="https://thingoftheday.netlify.app/assets/fb_og.png">
+    <!-- Fb/Default OG Meta Tags -->
+    <meta property="og:url" content="https://thingoftheday.xyz" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="thingoftheday by @whitep4nth3r" />
+    <meta
+      property="og:description"
+      content="thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript. Built by @whitep4nth3r."
+    />
+    <meta property="og:image" content="https://thingoftheday.netlify.app/assets/fb_og.png" />
 
-  <!-- Twitter OG Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="twitter:domain" content="thingoftheday.xyz">
-  <meta property="twitter:url" content="https://thingoftheday.xyz">
-  <meta name="twitter:title" content="thingoftheday by @whitep4nth3r">
-  <meta name="twitter:description" content="thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript. Built by @whitep4nth3r.">
-  <meta name="twitter:image" content="https://thingoftheday.netlify.app/assets/twitter_og.png">
+    <!-- Twitter OG Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="thingoftheday.xyz" />
+    <meta property="twitter:url" content="https://thingoftheday.xyz" />
+    <meta name="twitter:title" content="thingoftheday by @whitep4nth3r" />
+    <meta
+      name="twitter:description"
+      content="thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript. Built by @whitep4nth3r."
+    />
+    <meta name="twitter:image" content="https://thingoftheday.netlify.app/assets/twitter_og.png" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="msapplication-TileColor" content="#f11012">
-  <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#f11012" />
+    <meta name="theme-color" content="#ffffff" />
 
-  <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
   <body>
     <main class="container">
       <header>
-        <h1 class="microblog__title">thingoftheday.xyz</h1> 
-        <p class="microblog__description">thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript.</p> 
-        <a href="https://github.com/whitep4nth3r/thingoftheday" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="microblog__link">View code on GitHub</a> 
+        <h1 class="microblog__title">thingoftheday.xyz</h1>
+        <p class="microblog__description">
+          thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML,
+          CSS and JavaScript.
+        </p>
+        <a
+          href="https://github.com/whitep4nth3r/thingoftheday"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="microblog__link"
+          >View code on GitHub</a
+        >
       </header>
       <section data-items></section>
     </main>
-    <footer class="footer">&copy; <span data-footer-year></span> <a href="https://twitter.com/whitep4nth3r" class="footer__link" target="_blank" rel="noreferrer noopener">@whitep4nth3r</a></footer>
+    <footer class="footer">
+      &copy; <span data-footer-year></span>
+      <a
+        href="https://twitter.com/whitep4nth3r"
+        class="footer__link"
+        target="_blank"
+        rel="noreferrer noopener"
+        >@whitep4nth3r</a
+      >
+    </footer>
     <script type="module" src="app.js"></script>
   </body>
-
 </html>
