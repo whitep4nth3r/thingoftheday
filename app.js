@@ -1,42 +1,49 @@
-import { SPACE_ID, ACCESS_TOKEN } from "./setup/credentials.js";
+import { ACCESS_TOKEN, SPACE_ID } from "./setup/credentials.js";
 
-const endpoint = "https://graphql.contentful.com/content/v1/spaces/" + SPACE_ID;
+async function fetchData() {
+  const endpoint = `https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}`;
 
-const query = `{
-  microblogCollection {
-    items {
-      sys {
-        firstPublishedAt
-        id
+  const query = `{
+    microblogCollection {
+      items {
+        sys {
+          firstPublishedAt
+          id
+        }
+        text
+        image {
+          url
+          title
+          width
+          height
+          description
+        }
+        panther
+        link
+        linkText
       }
-      text
-      image {
-        url
-        title
-        width
-        height
-        description
-      }
-      panther
-      link
-      linkText
     }
-  }
-}`;
+  }`;
 
-const fetchOptions = {
-  spaceID: SPACE_ID,
-  accessToken: ACCESS_TOKEN,
-  endpoint,
-  method: "POST",
-  headers: {
-    Authorization: "Bearer " + ACCESS_TOKEN,
-    "Content-Type": "application/json",
-  },
-  redirect: "follow",
-  referrerPolicy: "no-referrer",
-  body: JSON.stringify({ query }),
-};
+  const fetchOptions = {
+    spaceID: SPACE_ID,
+    accessToken: ACCESS_TOKEN,
+    endpoint,
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${ACCESS_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    referrerPolicy: "no-referrer",
+    body: JSON.stringify({ query }),
+  };
+
+  const response = await fetch(endpoint, fetchOptions);
+  const result = await response.json();
+
+  return result;
+}
 
 const getMonthStringFromInt = (int) => {
   const months = [
@@ -59,7 +66,11 @@ const getMonthStringFromInt = (int) => {
 
 const addLeadingZero = (num) => {
   num = num.toString();
-  while (num.length < 2) num = "0" + num;
+
+  while (num.length < 2) {
+    num = `0${num}`;
+  }
+
   return num;
 };
 
@@ -73,13 +84,19 @@ const renderFooterDate = () => {
 const formatPublishedDateForDateTime = (dateString) => {
   const timestamp = Date.parse(dateString);
   const date = new Date(timestamp);
-  return `${date.getFullYear()}-${addLeadingZero(date.getMonth() + 1)}-${date.getDate()}`;
+
+  return `${date.getFullYear()}-${addLeadingZero(
+    date.getMonth() + 1
+  )}-${date.getDate()}`;
 };
 
 const formatPublishedDateForDisplay = (dateString) => {
   const timestamp = Date.parse(dateString);
   const date = new Date(timestamp);
-  return `${date.getDate()} ${getMonthStringFromInt(date.getMonth())} ${date.getFullYear()}`;
+
+  return `${date.getDate()} ${getMonthStringFromInt(
+    date.getMonth()
+  )} ${date.getFullYear()}`;
 };
 
 const microblogHolder = document.querySelector("[data-items]");
@@ -94,64 +111,122 @@ const itemClassNames = {
   text: "item__text",
 };
 
-const renderItems = (items) => {
-  items.forEach((item) => {
-    const newItemEl = document.createElement("article");
-    newItemEl.setAttribute("id", item.sys.id);
-    newItemEl.className = itemClassNames.container;
+const newPantherEl = (props) => {
+  const { panther } = props;
 
-    const newTopRow = document.createElement("div");
-    newTopRow.className = itemClassNames.topRow;
-
-    const newPantherEl = document.createElement("img");
-    newPantherEl.src = `./panthers/${item.panther}.svg`;
-    newPantherEl.alt = `${item.panther} panther emote`;
-    newPantherEl.setAttribute("width", "50");
-    newPantherEl.setAttribute("height", "50");
-    newPantherEl.className = itemClassNames.panther;
-    newTopRow.appendChild(newPantherEl);
-
-    const newDateEl = document.createElement("time");
-    newDateEl.setAttribute("datetime", formatPublishedDateForDateTime(item.sys.firstPublishedAt));
-    newDateEl.innerText = formatPublishedDateForDisplay(item.sys.firstPublishedAt);
-    newDateEl.className = itemClassNames.date;
-    newTopRow.appendChild(newDateEl);
-
-    newItemEl.appendChild(newTopRow);
-
-    if (item.image) {
-      const newImgEl = document.createElement("img");
-      newImgEl.src = `${item.image.url}?w=500`;
-      newImgEl.alt = item.image.description;
-      newImgEl.setAttribute("width", item.image.width);
-      newImgEl.setAttribute("height", item.image.height);
-      newImgEl.className = itemClassNames.img;
-      newItemEl.appendChild(newImgEl);
-    }
-
-    if (item.text) {
-      const newTextEl = document.createElement("h2");
-      newTextEl.innerText = item.text;
-      newTextEl.className = itemClassNames.text;
-      newItemEl.appendChild(newTextEl);
-    }
-
-    if (item.link) {
-      const newLinkEl = document.createElement("a");
-      newLinkEl.href = item.link;
-      newLinkEl.innerText = item.linkText || "View more";
-      newLinkEl.setAttribute("target", "_blank");
-      newLinkEl.setAttribute("rel", "noopener noreferrer");
-      newLinkEl.className = itemClassNames.link;
-      newItemEl.appendChild(newLinkEl);
-    }
-
-    microblogHolder.appendChild(newItemEl);
-  });
+  return `
+    <img
+      alt="${panther} panther emote"
+      class="${itemClassNames.panther}"
+      height="50"
+      src="./panthers/${panther}.svg"
+      width="50"
+    />
+  `;
 };
 
-renderFooterDate();
+const newDateEl = (props) => {
+  const { sys } = props;
 
-fetch(endpoint, fetchOptions)
-  .then((response) => response.json())
-  .then((data) => renderItems(data.data.microblogCollection.items));
+  return `
+    <time
+      class="${itemClassNames.date}"
+      datetime="${formatPublishedDateForDateTime(sys.firstPublishedAt)}"
+    >
+      ${formatPublishedDateForDisplay(sys.firstPublishedAt)}
+    </time>
+  `;
+};
+
+const newTopRow = (props) => {
+  const { panther, sys } = props;
+
+  return `
+    <div
+      class="${itemClassNames.topRow}"
+    >
+      ${newPantherEl({ panther })}
+      ${newDateEl({ sys })}
+    </div>
+  `;
+};
+
+const newImgEl = (props) => {
+  const { description, height, url, width } = props;
+
+  return `
+    <img
+      alt="${description}"
+      class="${itemClassNames.img}"
+      height="${height}"
+      src="${url}?w=500"
+      width="${width}"
+    />
+  `;
+};
+
+const newTextEl = (props) => {
+  const { text } = props;
+
+  return `
+    <h2
+      class="${itemClassNames.text}"
+    >
+      ${text}
+    </h2>
+  `;
+};
+
+const newLinkEl = (props) => {
+  const { link, linkText } = props;
+
+  return `
+    <a
+      class="${itemClassNames.link}"
+      href="${link}"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      ${linkText || "View more"}
+    </a>
+  `;
+};
+
+const newItemEl = (props) => {
+  const { image, link, linkText, sys, text } = props;
+
+  return `
+    <article
+      id="${sys.id}"
+      class="${itemClassNames.container}"
+    >
+      ${newTopRow(props)}
+      ${image ? newImgEl(image) : ''}
+      ${text ? newTextEl({ text }) : ''}
+      ${link ? newLinkEl({ link, linkText }) : ''}
+    </article>
+  `;
+};
+
+const newItemsEl = (props) => {
+  const { items } = props;
+
+  return items.map((item) => newItemEl(item)).join('');
+};
+
+const renderItems = (items) => {
+  microblogHolder.insertAdjacentHTML("afterbegin", newItemsEl({ items }));
+};
+
+async function main() {
+  const {
+    data: {
+      microblogCollection: { items },
+    },
+  } = await fetchData();
+
+  renderItems(items);
+  renderFooterDate();
+}
+
+main();
