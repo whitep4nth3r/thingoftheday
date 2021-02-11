@@ -8,7 +8,7 @@
 
 [Visit the tutorial article](https://www.contentful.com/blog/2021/02/05/how-to-build-a-lightweight-blog/)
 
-If you've forked the repo and set up your own thingoftheday microblog, I'd love to share it with the world! ✨ 😎.
+If you've forked the repo and set up your own thingoftheday microblog, I'd love to share it with the world! ✨ 😎
 
 [Find me on Twitter](https://twitter.com/whitep4nth3r) and say hello! 👋🏼
 
