@@ -2,9 +2,15 @@
 
 # thingoftheday
 
-## A lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript.
+## A lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript
 
 [Visit thingoftheday](https://thingoftheday.xyz/)
+
+[Visit the tutorial article](https://www.contentful.com/blog/2021/02/05/how-to-build-a-lightweight-blog/)
+
+If you've forked the repo and set up your own thingoftheday microblog, I'd love to share it with the world! ✨ 😎.
+
+[Find me on Twitter](https://twitter.com/whitep4nth3r) and say hello! 👋🏼
 
 ## Useful links
 
