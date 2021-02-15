@@ -1,4 +1,4 @@
-![Screenshot of thingoftheday.xyz](./assets/screenshot.png)
+![Screenshot of thingoftheday.xyz](./screenshot.png)
 
 # thingoftheday
 
