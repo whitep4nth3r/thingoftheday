@@ -86,8 +86,8 @@ exports.handler = async function (event, context) {
     <title>thingoftheday.xyz</title>
     <link>https://thingoftheday.xyz</link>
     <description>thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript.</description>
+    ${buildRssItems(await getPosts())}
   </channel>
-  ${buildRssItems(await getPosts())}
   </rss>`;
 
   return {
