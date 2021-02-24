@@ -28,7 +28,7 @@ We're going to make some small changes to some handy files in the `./setup` dire
 
 ## Step 1: Get the code
 
-Fork the repository from GitHub to your local machine.
+Fork this repository to your GitHub accuont, and clone it to your local machine using git or the GitHub CLI.
 
 ---
 
