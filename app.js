@@ -141,7 +141,7 @@ const renderItems = (items) => {
       newLinkEl.href = item.link;
       newLinkEl.innerText = item.linkText || "View more";
       newLinkEl.setAttribute("target", "_blank");
-      newLinkEl.setAttribute("rel", "noopener noreferrer");
+      newLinkEl.setAttribute("rel", "nofollow");
       newLinkEl.className = itemClassNames.link;
       newItemEl.appendChild(newLinkEl);
     }
