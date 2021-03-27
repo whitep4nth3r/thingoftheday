@@ -25,16 +25,11 @@ const query = `{
 }`;
 
 const fetchOptions = {
-  spaceID: SPACE_ID,
-  accessToken: ACCESS_TOKEN,
-  endpoint,
   method: "POST",
   headers: {
     Authorization: "Bearer " + ACCESS_TOKEN,
     "Content-Type": "application/json",
   },
-  redirect: "follow",
-  referrerPolicy: "no-referrer",
   body: JSON.stringify({ query }),
 };
 
@@ -141,7 +136,7 @@ const renderItems = (items) => {
       newLinkEl.href = item.link;
       newLinkEl.innerText = item.linkText || "View more";
       newLinkEl.setAttribute("target", "_blank");
-      newLinkEl.setAttribute("rel", "nofollow noopener noreferrer");
+      newLinkEl.setAttribute("rel", "noopener noreferrer");
       newLinkEl.className = itemClassNames.link;
       newItemEl.appendChild(newLinkEl);
     }
