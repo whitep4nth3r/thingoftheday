@@ -1,2 +1,7 @@
 [build]
   functions = "functions/"
+
+[[redirects]]
+  from = "/rss"
+  to = "/.netlify/functions/rss"
+  status = 301
